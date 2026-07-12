@@ -1,0 +1,29 @@
+# AI Speed Radar - AMD GPU (Windows)
+# For AMD Radeon / Ryzen GPUs on Windows
+#
+# TWO OPTIONS for AMD GPU acceleration:
+#
+# OPTION A (Recommended): DirectML via ONNX Runtime
+#   - Works with any AMD GPU on Windows
+#   - Use this file as-is, then export YOLO models to ONNX format
+#   - GPU-accelerated inference via DirectML
+#
+# OPTION B: Full ROCm PyTorch
+#   - Requires specific AMD GPUs (RDNA 2/3+, e.g., RX 6000/7000 series)
+#   - Requires Python 3.12 (separate venv needed)
+#   - Installation from AMD wheels (not standard PyPI):
+#     See: https://rocm.docs.amd.com/projects/radeon-ryzen/en/latest/docs/install/installrad/windows/install-pytorch.html
+#   - Then install core requirements manually
+
+-r requirements.txt
+
+# PyTorch CPU (base) - DirectML acceleration comes via ONNX Runtime
+torch==2.5.1
+torchvision==0.20.1
+
+# DirectML ONNX Runtime for AMD GPU inference
+onnxruntime-directml==1.20.1
+
+# paddlepaddle (required by paddleocr) must be installed separately:
+# pip install paddlepaddle -i https://www.paddlepaddle.org.cn/packages/stable/cpu/
+# NOTE: PaddleOCR does NOT support AMD ROCm on Windows. CPU-only fallback.

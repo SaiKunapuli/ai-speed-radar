@@ -1,4 +1,17 @@
+# AI Speed Radar - macOS (Apple Silicon / Intel)
+# MPS (Metal Performance Shaders) is built into the standard PyTorch package.
+# Apple Silicon Macs (M1/M2/M3/M4) get GPU acceleration automatically.
+# Verify with: python -c "import torch; print(torch.backends.mps.is_available())"
+
 -r requirements.txt
 
+# PyTorch with MPS support (built-in for macOS)
 torch==2.5.1
 torchvision==0.20.1
+onnxruntime==1.20.1
+
+# IMPORTANT: paddleocr (from requirements.txt) will install but WON'T WORK on macOS.
+# paddlepaddle (paddleocr's backend) has no macOS support.
+# After installing, remove it and use easyocr instead:
+#   pip uninstall paddleocr -y
+# (easyocr is already in requirements.txt and works on macOS)
