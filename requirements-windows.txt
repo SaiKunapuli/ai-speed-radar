@@ -2,3 +2,6 @@
 
 torch==2.5.1
 torchvision==0.20.1
+
+# paddlepaddle (required by paddleocr) must be installed separately from the official mirror:
+# pip install paddlepaddle -i https://www.paddlepaddle.org.cn/packages/stable/cpu/
