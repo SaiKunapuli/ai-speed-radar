@@ -30,6 +30,7 @@ runs/
 outputs/
 logs/
 wandb/
+datasets/
 
 # Environment
 .env
